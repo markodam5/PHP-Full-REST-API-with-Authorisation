@@ -21,26 +21,23 @@
                 <div class="panel-heading">
                     <div class="row">
                         <div class="col-xs-6">
-
-
                             <div id="success" style="display:none;"></div>
-
                             <div class="error" style="display:none;"></div>
-
-
                             <a href="#" class="active" id="login-form-link">Login</a>
                         </div>
+                        
                         <div class="col-xs-6">
                             <a href="#" id="register-form-link">Register</a>
                         </div>
                     </div>
                     <hr>
-                </div>
+                </div><!-- End of .panel-heading -->
                 <!-- .panel-body: -->
                 <div class="panel-body">
                     <div class="row">
                         <div class="col-lg-12">
-
+                            
+                            <!-- Login Form ========================================================================== -->
                             <form id="login-form" action="#" method="post" role="form" style="display: block;">
 
                                 <div class="form-group">
@@ -75,7 +72,7 @@
                                 </div>
 
                             </form> <!-- end of #login-form -->
-
+                            <!-- ======================================================================================= -->
                             <?php
                             // For login submit:
                                 session_start();
@@ -90,11 +87,10 @@
 
                             ?>
 
-
                             <!-- Show the message from the success object: -->
                             <div id="success" style="display: none;"></div>
                             
-                            
+                            <!-- Register Form ======================================================================= -->
                             <form id="register-form" action="#" method="post" role="form" style="display: none;">
                                 <div class="form-group">
                                     <input type="text" name="username1" id="username1" tabindex="1" class="form-control" placeholder="Username" value="" >
@@ -117,7 +113,7 @@
                                     </div>
                                 </div>
                             </form> <!-- end of #register-form -->
-
+                            <!-- ===================================================================================== -->
 
                         </div><!-- end of.col-lg-12 -->
                     </div><!-- end of .row -->
@@ -130,60 +126,56 @@
 </div><!-- end of .container -->
 
 
-
 </body>
 </html>
 
 <script>
 
-//REGISTRATION:
-// Ajax request:
-$(document).ready(function () {
-    $(".reg").click(function (e) {
-
-        e.preventDefault(); // Don't refresh
-
-        var username = $("#username1").val();
-        var email = $("#email1").val();
-        var password = $("#password1").val();
-        var conf_pass = $("#confirm_password1").val();
-        var action = "register";
-
-        $.ajax({
-            method:"POST",
-            url: "classes/Users.php",
-            data:{"action":action, "username":username, "email":email, "password":password, "conf_pass":conf_pass},
-            // success object:
-            success: function(data){
-                // append data:
-                $("#success").append(data.message).css("display","block");
-            }
-
+    //REGISTRATION:
+    // Ajax request:
+    $(document).ready(function () {
+        $(".reg").click(function (e) {
+    
+            e.preventDefault(); // Don't refresh
+    
+            var username = $("#username1").val();
+            var email = $("#email1").val();
+            var password = $("#password1").val();
+            var conf_pass = $("#confirm_password1").val();
+            var action = "register";
+    
+            $.ajax({
+                method:"POST",
+                url: "classes/Users.php",
+                data:{"action":action, "username":username, "email":email, "password":password, "conf_pass":conf_pass},
+                // success object:
+                success: function(data){
+                    // append data:
+                    $("#success").append(data.message).css("display","block");
+                }
+    
+            });
         });
-
     });
-
-});
-
-
-// JQUERY animation for login-register form:
-$(function() {
-
-    $('#login-form-link').click(function(e) {
-        $("#login-form").delay(100).fadeIn(100);
-        $("#register-form").fadeOut(100);
-        $('#register-form-link').removeClass('active');
-        $(this).addClass('active');
-        e.preventDefault();
+    
+    // JQUERY animation for login-register form:
+    $(function() {
+        $('#login-form-link').click(function(e) {
+            $("#login-form").delay(100).fadeIn(100);
+            $("#register-form").fadeOut(100);
+            $('#register-form-link').removeClass('active');
+            $(this).addClass('active');
+            e.preventDefault();
+        });
+        
+        $('#register-form-link').click(function(e) {
+            $("#register-form").delay(100).fadeIn(100);
+            $("#login-form").fadeOut(100);
+            $('#login-form-link').removeClass('active');
+            $(this).addClass('active');
+            e.preventDefault();
+        });
+    
     });
-    $('#register-form-link').click(function(e) {
-        $("#register-form").delay(100).fadeIn(100);
-        $("#login-form").fadeOut(100);
-        $('#login-form-link').removeClass('active');
-        $(this).addClass('active');
-        e.preventDefault();
-    });
-
-});
 
 </script>
