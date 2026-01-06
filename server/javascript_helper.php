@@ -4,7 +4,6 @@ function parse_json($parse, $status_code = 200 )
 {
     set_status_header($status_code, "");
     header("Content-type: application/json");
-
     echo json_encode($parse);
     exit;
 }
@@ -13,7 +12,7 @@ function parse_json($parse, $status_code = 200 )
 
 function set_status_header($code = 200, $text = '') {
 
-    $stati = array(
+    $status = array(
         200	=> 'OK',
         201	=> 'Created',
         202	=> 'Accepted',
@@ -62,9 +61,9 @@ function set_status_header($code = 200, $text = '') {
         show_error('Status codes must be numeric', 500);
     }
 
-    if (isset($stati[$code]) AND $text == '')
+    if (isset($status[$code]) AND $text == '')
     {
-        $text = $stati[$code];
+        $text = $status[$code];
     }
 
     if ($text == '')
