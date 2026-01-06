@@ -13,13 +13,9 @@ $result = $db->select($sql);
 
 // Show username and licence_key:
 if($result->num_rows > 0 ) {
-    while ($row = $result->fetch_object())
-    {
-        echo "Welcome " . $username . "<br>";
-        echo "Your licence key is <span style='color:red;'>" . $row->licence_key . "</span>";
-
-    }
-
+    $row = $result->fetch_object();
+    echo "Welcome " . $username . "<br>";
+    echo "Your licence key is <span style='color:red;'>" . $row->licence_key . "</span>";
 }else{
     echo "O results";
 }
