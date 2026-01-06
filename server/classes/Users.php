@@ -1,13 +1,13 @@
 <?php
 
 require_once($_SERVER['DOCUMENT_ROOT'] . "/rest/server/config/config.php");
+require_once($_SERVER['DOCUMENT_ROOT'] . "/rest/server/javascript_helper.php");
 
 if(isset($_POST['action']) && $_POST['action'] == "register") {
     $users = new Users();
     // data and make the registration:
     $users->userRegister();
 }
-
 
 
 class Users{
@@ -32,26 +32,15 @@ class Users{
 
         $result = $this->db->insert($sql);
 
-
-
+        
         if($result){
-            $data = array(
-                "message" => "You are succcessfully registered on our aplication"
-            );
-
-            // Return in json:
-            header("Content-Type: application/json");
-            echo json_encode($data);
-
+            parse_json([
+                "message" => "You are successfully registered on our application."
+            ],201);
         }else{
-
-            $data = array(
-                "error" => "Something went wrong! Please try again"
-            );
-
-            header("Content-Type: application/json");
-            echo json_encode($data);
-
+            parse_json([
+                "error" => "Something went wrong! Please try again."
+            ],500);
         }
 
     } // End of userRegister method
