@@ -1,4 +1,1 @@
-# PHP-rest-client-server
-This is an example how to make complete rest client / server php service with header authorization. 
-This application using header authorization and PHP rest client library from TC DENT.
-I'am parse JSON object to show result from server response.
+PHP Full REST API with Authorization is an example project demonstrating a complete RESTful API built in native PHP with header-based authorization. It includes both a server API and a client that consumes the API. The server serves secured REST endpoints, and the client makes authorized requests to those endpoints and parses JSON responses.
