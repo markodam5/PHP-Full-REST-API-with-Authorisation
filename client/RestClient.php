@@ -232,6 +232,13 @@ class RestClient implements Iterator, ArrayAccess
 
         return $this->decoded_response = $this->response;
     }
+
+    public function getDecodedResponse(): mixed
+    {
+        return $this->decode_response();
+    }
+
+    
 }
 
 
