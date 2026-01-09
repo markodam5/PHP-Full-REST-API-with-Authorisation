@@ -11,15 +11,17 @@ require_once "RestClient.php";
              )
     ]);
 
+
     // Send request to the server:
+
     // Return all data
     $result = $api->get("get"); // Parametar get is from get method on the Server.php file
 
-    // Return all data:
-    //$result = $api->get("get", ['id' => 2]);
+    // Return data with specific ID:
+    // $result = $api->get("get", ['id' => 2]);
 
     // Return with limit:
-    //$result = $api->get("get", ['limit' => 5]);
+    // $result = $api->get("get", ['limit' => 5]);
 
 
     if($result->info->http_code != 200){
