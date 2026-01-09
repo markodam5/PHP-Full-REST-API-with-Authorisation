@@ -11,15 +11,15 @@ require_once "RestClient.php";
              )
     ]);
 
-     // Send request to the server:
-     // Return all data
+    // Send request to the server:
+    // Return all data
     $result = $api->get("get"); // Parametar get is from get method on the Server.php file
 
-     // Return all data:
+    // Return all data:
     //$result = $api->get("get", ['id' => 2]);
 
     // Return with limit:
-   //$result = $api->get("get", ['limit' => 5]);
+    //$result = $api->get("get", ['limit' => 5]);
 
 
     if($result->info->http_code != 200){
@@ -27,14 +27,17 @@ require_once "RestClient.php";
         echo "<p style='color:red;'><b> Status code " . ": " .$http_code. "</b></p>" ;
 
         // decode_response(); from RestClient.php file:
-        $status = $result->decode_response();
-        echo "<p style='color:red;'><b> $status->message</b></p>";
+       $status = $result->getDecodedResponse();
 
-        exit();
+        if (is_array($status) && isset($status['message'])){
+            echo "<p style='color:red;'><b> $status[message] </b></p>";
+        }else{
+            echo 'Unexpected response';
+        }
 
     }
 
-        $obj = $result->decode_response();
+    $obj = $result->getDecodedResponse();
 
 ?>
 
