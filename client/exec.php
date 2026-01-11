@@ -11,8 +11,8 @@ require_once "RestClient.php";
              )
     ]);
 
-
-    // Send request to the server:
+// =============================================================================================
+    // SEND REQUEST TO THE SERVER:
 
     // Return all data
     $result = $api->get("get"); // Parametar get is from get method on the Server.php file
@@ -22,7 +22,9 @@ require_once "RestClient.php";
 
     // Return with limit:
     // $result = $api->get("get", ['limit' => 5]);
-
+// =============================================================================================
+    
+    $status = $result->getDecodedResponse();
 
     if($result->info->http_code != 200){
         $http_code = $result->info->http_code;
@@ -31,18 +33,20 @@ require_once "RestClient.php";
         // decode_response(); from RestClient.php file:
        $status = $result->getDecodedResponse();
 
-        if (is_array($status) && isset($status['message'])){
+        if(is_array($status) && isset($status['message'])){
             echo "<p style='color:red;'><b> $status[message] </b></p>";
         }else{
             echo 'Unexpected response';
         }
 
+        exit();
     }
 
-    $obj = $result->getDecodedResponse();
 
 ?>
 
+<!-- =============================================================================================   -->
+<!-- SHOW RESULTS: -->
 
 <!DOCTYPE html>
 <html lang="en">
@@ -100,19 +104,15 @@ require_once "RestClient.php";
                         <a href="#">Contact</a>
                     </li>
                 </ul>
-            </div>
-            <!-- /.navbar-collapse -->
-        </div>
-        <!-- /.container -->
+            </div><!-- /.navbar-collapse -->
+        </div> <!-- /.container -->
     </nav>
 
     <!-- Page Content -->
     <div class="container">
-
         <div class="row">
-
             <div class="col-md-3">
-                <p class="lead">Shop Name</p>
+                <p class="lead">REST API</p>
                 <div class="list-group">
                     <a href="#" class="list-group-item">Category 1</a>
                     <a href="#" class="list-group-item">Category 2</a>
@@ -121,60 +121,27 @@ require_once "RestClient.php";
             </div>
 
             <div class="col-md-9">
-
-                <div class="row carousel-holder">
-
-                    <div class="col-md-12">
-                        <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
-                            <ol class="carousel-indicators">
-                                <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
-                                <li data-target="#carousel-example-generic" data-slide-to="1"></li>
-                                <li data-target="#carousel-example-generic" data-slide-to="2"></li>
-                            </ol>
-                            <div class="carousel-inner">
-                                <div class="item active">
-                                    <img class="slide-image" src="http://placehold.it/800x300" alt="">
-                                </div>
-                                <div class="item">
-                                    <img class="slide-image" src="http://placehold.it/800x300" alt="">
-                                </div>
-                                <div class="item">
-                                    <img class="slide-image" src="http://placehold.it/800x300" alt="">
-                                </div>
-                            </div>
-                            <a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">
-                                <span class="glyphicon glyphicon-chevron-left"></span>
-                            </a>
-                            <a class="right carousel-control" href="#carousel-example-generic" data-slide="next">
-                                <span class="glyphicon glyphicon-chevron-right"></span>
-                            </a>
-                        </div>
-                    </div>
-
-                </div>
-
-
-
                 <div class="row">
                     <?php
-                        foreach ($obj->movies as $movie){
-                        
+
+                        foreach($status['movies'] as $movie){
+                            
                     ?>
 
                         <div class="col-sm-4 col-lg-4 col-md-4">
                             <div class="thumbnail">
-                                <a href="single.php?single=<?php echo $movie->movie_id ?>">
-                                    <img style="width: 250px; height: 250px;" src="<?php echo $movie->movie_picture ?>" alt=""></a>
+                                <a href="single.php?single=<?php echo $movie['movie_id'] ?>">
+                                    <img style="width: 250px; height: 250px;" src="<?php echo $movie['movie_picture'] ?>" alt=""></a>
 
                                 <div class="caption">
                                     <h4 class="pull-right"> </h4>
-                                    <h4><a href="#"><?php echo $movie->movie_title ?></a>
+                                    <h4><a href="#"><?php echo $movie['movie_title'] ?></a>
                                     </h4>
-                                    <p> <a target="_blank" href="<?php echo $movie->movie_link ?>">Watch trailer</a></p>
+                                    <p> <a target="_blank" href="<?php echo $movie['movie_link'] ?>">Watch trailer</a></p>
 
                                 </div>
                                 <div class="ratings">
-                                    <p class="pull-right">Price: <?php echo $movie->movie_price ?>  DIN</p>
+                                    <p class="pull-right">Price: <?php echo $movie['movie_price'] ?>  DIN</p>
                                     <p>
                                         <span class="glyphicon glyphicon-star"></span>
                                         <span class="glyphicon glyphicon-star"></span>
@@ -191,27 +158,23 @@ require_once "RestClient.php";
 
 
                 </div> <!-- End of class row -->
-
             </div> <!-- End of class="col-md-9" -->
-
         </div> <!-- End of class="row" -->
-
     </div> <!-- End of class="container" -->
 
 
     <div class="container">
-
         <hr>
 
         <!-- Footer -->
         <footer>
             <div class="row">
                 <div class="col-lg-12">
-                    <p>Copyright &copy; Your Website 2014</p>
+                    <p>Copyright &copy; Your Website <?php echo date('Y'); ?></p>
                 </div>
             </div>
         </footer>
-
+        
     </div><!-- End of class="container" -->
 
 
