@@ -1,5 +1,7 @@
 <?php
 
+session_start();
+
 define('BASE_PATH', realpath(__DIR__ . '/..')); // /rest
 require_once BASE_PATH . '/server/config/config.php';
 
@@ -88,8 +90,6 @@ $server->get();
                             <!-- ======================================================================================= -->
                             <?php
                             // For login submit:
-                                session_start();
-
                                 if(isset($_POST['login-submit'])){
                                     $users = new Users();
                                     $users->userLogin();
