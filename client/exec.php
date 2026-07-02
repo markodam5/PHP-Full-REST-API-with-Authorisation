@@ -59,7 +59,7 @@ require_once "RestClient.php";
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Rest tutorial</title>
+    <title>Rest project</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -89,7 +89,7 @@ require_once "RestClient.php";
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="#">Rest tutorial</a>
+                <a class="navbar-brand" href="#">Rest project</a>
             </div>
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
