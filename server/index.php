@@ -1,3 +1,16 @@
+<?php
+
+define('BASE_PATH', realpath(__DIR__ . '/..')); // /rest
+require_once BASE_PATH . '/server/config/config.php';
+
+
+$server = new Server();
+$server->get();
+
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -78,9 +91,6 @@
                                 session_start();
 
                                 if(isset($_POST['login-submit'])){
-                                
-                                    require_once($_SERVER['DOCUMENT_ROOT'] . "/rest/server/config/config.php");
-
                                     $users = new Users();
                                     $users->userLogin();
                                 }
