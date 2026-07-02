@@ -42,6 +42,15 @@ require_once "RestClient.php";
         exit();
     }
 
+    $movies = [];
+    if (is_array($status) && isset($status['movies']) && is_array($status['movies'])) {
+        $movies = $status['movies'];
+    } elseif (is_string($status) && $status !== '') {
+        echo "<p style='color:red;'><b> " . htmlspecialchars($status) . " </b></p>";
+    } else {
+        echo '<p style="color:red;"><b>No movies were returned by the API.</b></p>';
+    }
+
 
 ?>
 
