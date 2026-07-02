@@ -1,8 +1,5 @@
 <?php
 
-require_once($_SERVER['DOCUMENT_ROOT'] . "/rest/server/config/config.php");
-require_once($_SERVER['DOCUMENT_ROOT'] . "/rest/server/javascript_helper.php");
-
 // Backend class performs the validation
 class Server extends Backend{
 
