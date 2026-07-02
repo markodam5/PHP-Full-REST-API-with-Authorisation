@@ -1,6 +1,6 @@
 <?php
 require_once BASE_PATH .'/server/config/config.php';
-require_once BASE_PATH .'/server/helper.php';
+require_once BASE_PATH .'/helper.php';
 
 class Backend{
     protected $db;
