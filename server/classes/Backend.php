@@ -1,6 +1,6 @@
 <?php
-require_once($_SERVER['DOCUMENT_ROOT'] . "/rest/server/config/config.php");
-require_once($_SERVER['DOCUMENT_ROOT'] . "/rest/server/javascript_helper.php");
+require_once BASE_PATH .'/server/config/config.php';
+require_once BASE_PATH .'/server/helper.php';
 
 class Backend{
     protected $db;
