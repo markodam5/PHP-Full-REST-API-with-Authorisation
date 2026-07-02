@@ -1,7 +1,7 @@
 <?php
 
 require_once realpath(__DIR__) . "/../config/config.php";
-require_once realpath(__DIR__) . "/../helper.php";
+require_once BASE_PATH . '/helper.php';
 
 if(isset($_POST['action']) && $_POST['action'] == "register") {
     $users = new Users();
