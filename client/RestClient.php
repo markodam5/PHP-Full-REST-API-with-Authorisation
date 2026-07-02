@@ -6,7 +6,7 @@
 
 
 if(!isset($SERVER_URL))
-    $SERVER_URL = "http://".$_SERVER['HTTP_HOST']."/rest/server/classes/Server.php";
+    $SERVER_URL = "http://".$_SERVER['HTTP_HOST']."/rest/server/index.php";
 
 
 class RestClientException extends Exception {}
