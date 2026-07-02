@@ -10,16 +10,29 @@ Make sure PHP and a web server are available on your machine. If you are using D
 Make sure the application is available from your web server root, for example:
 - /var/www/html/rest
 
-3. Start the server
-Open the server entry point in your browser:
+3. Configure the database
+- The application uses MySQL. Update the database settings in config.php if needed.
+
+4. Import the database schema
+- Import the SQL file from rest.sql.
+
+5. Start the server
+Open the server entry point in your browser, if you want to get a new licence key:
 - http://localhost/rest/server/index.php
 
-4. Start the client
+6. Start the client
 After the server is available, open the client entry point:
 - http://localhost/rest/client/exec.php
 
-5. Configure the database
-- The application uses MySQL. Update the database settings in config.php if needed.
+You can send a request to the server:
 
-6. Import the database schema
-- Import the SQL file from rest.sql.
+    // Return all data:
+    $result = $api->get("get"); // Parametar get is from get method on the Server.php file
+
+    // Return data with specific ID:
+    $result = $api->get("get", ['id' => 2]);
+
+    // Return with limit:
+    $result = $api->get("get", ['limit' => 5]);
+
+
