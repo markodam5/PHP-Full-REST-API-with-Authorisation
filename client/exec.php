@@ -158,7 +158,7 @@ require_once "RestClient.php";
         <footer>
             <div class="row">
                 <div class="col-lg-12">
-                    <p>Copyright &copy; Your Website <?php echo date('Y'); ?></p>
+                    <p>Copyright &copy; REST API <?php echo date('Y'); ?></p>
                 </div>
             </div>
         </footer>
