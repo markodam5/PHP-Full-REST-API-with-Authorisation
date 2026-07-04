@@ -40,8 +40,14 @@ CREATE TABLE `movies` (
 --
 
 INSERT INTO `movies` (`movie_id`, `movie_title`, `movie_picture`, `movie_link`, `movie_price`) VALUES
-(1, 'Force 2', 'http://virtual.a/rest/server/images/force2.jpg', 'https://www.youtube.com/watch?v=XAp78FqTfw8', 50),
-(2, 'Mechanic', 'http://virtual.a/rest/server/images/mechanic.jpg', 'https://www.youtube.com/watch?v=CMklQNn0OH0', 60);
+(1, 'Force 2', 'http://localhost/rest/server/images/force2.jpg', 'https://www.youtube.com/watch?v=XAp78FqTfw8', 50),
+(2, 'Mechanic', 'http://localhost/rest/server/images/mechanic.jpg', 'https://www.youtube.com/watch?v=CMklQNn0OH0', 60),
+(3, 'Rambo 4', 'http://localhost/rest/server/images/rambo4.jpg', 'https://www.youtube.com/watch?v=CPx-0qDRroU', 1500),
+(4, 'Robocop', 'http://localhost/rest/server/images/robocop.jpg', 'https://www.youtube.com/watch?v=Z931XZ2wfpE', 1000),
+(5, 'Swiss Army Man', 'http://localhost/rest/server/images/swiss-army.jpg', 'https://www.youtube.com/watch?v=yrK1f4TsQfM', 1100),
+(6, 'Transformers: The Last Knight', 'http://localhost/rest/server/images/transformers.jpg', 'https://www.youtube.com/watch?v=AntcyqJ6brc', 900),
+(7, 'Warcraft: The beginning', 'http://localhost/rest/server/images/warcraft.jpg', 'https://www.youtube.com/watch?v=RVzb956kdgc', 900),
+(8, 'X-Men: Apocalypse', 'http://localhost/rest/server/images/x-men.jpg', 'https://www.youtube.com/watch?v=COvnHv42T-A', 900);
 
 -- --------------------------------------------------------
 
